@@ -1,0 +1,22 @@
+{
+  "name": "webpack",
+  "version": "1.0.0",
+  "description": "webpack 5 course",
+  "private": true,
+  "scripts": {
+    "start": "npx webpack --mode development",
+    "build": "npx webpack --mode production"
+  },
+  "keywords": [
+    "webpack",
+    "js"
+  ],
+  "author": "vitalyvitmens",
+  "license": "ISC",
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "html-webpack-plugin": "^5.6.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
