@@ -1,5 +1,5 @@
 {
-  "name": "webpack",
+  "name": "rs-webpack",
   "version": "1.0.0",
   "description": "webpack 5 course",
   "private": true,
