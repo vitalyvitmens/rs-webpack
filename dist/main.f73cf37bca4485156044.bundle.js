@@ -1,0 +1,2 @@
+(()=>{"use strict";const t=document.querySelector("#app");[{id:1,title:"Item 1"},{id:2,title:"Item 2"},{id:3,title:"Item 3"},{id:4,title:"Item 42"}].forEach((function(e){const i=document.createElement("li");i.textContent=e.title,t.append(i)}))})();
+//# sourceMappingURL=main.f73cf37bca4485156044.bundle.js.map
