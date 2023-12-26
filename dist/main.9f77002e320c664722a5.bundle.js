@@ -16,7 +16,7 @@
   \*****************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([\n  { id: 1, title: 'Item 1' },\n  { id: 2, title: 'Item 2' },\n  { id: 3, title: 'Item 3' },\n  { id: 4, title: 'Item 42' },\n]);\n\n\n//# sourceURL=webpack:///./data.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([\r\n  { id: 1, title: 'Item 1' },\r\n  { id: 2, title: 'Item 2' },\r\n  { id: 3, title: 'Item 3' },\r\n  { id: 4, title: 'Item 42' },\r\n]);\r\n\n\n//# sourceURL=webpack:///./data.js?");
 
 /***/ }),
 
@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data */ \"./data.js\");\n\n\nconst root = document.querySelector('#app')\n\nfunction renderItem(item) {\n  const li = document.createElement('li')\n  li.textContent = item.title\n  root.append(li)\n}\n\n_data__WEBPACK_IMPORTED_MODULE_0__[\"default\"].forEach(renderItem)\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data */ \"./data.js\");\n\r\n\r\nconst root = document.querySelector('#app')\r\n\r\nfunction renderItem(item) {\r\n  const li = document.createElement('li')\r\n  li.textContent = item.title\r\n  root.append(li)\r\n}\r\n\r\n_data__WEBPACK_IMPORTED_MODULE_0__[\"default\"].forEach(renderItem)\r\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ })
 
