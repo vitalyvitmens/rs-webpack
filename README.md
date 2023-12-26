@@ -6,3 +6,5 @@
 - npm install --save-dev css-loader
 - npm install --save-dev style-loader
 - npm install --save-dev mini-css-extract-plugin
+- npm install css-minimizer-webpack-plugin --save-dev
+- npm install terser-webpack-plugin --save-dev
