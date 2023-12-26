@@ -14,4 +14,5 @@
 - npm install sass-loader sass webpack --save-dev
 - npm install --save-dev postcss-loader postcss
 - npm i postcss-preset-env --save-dev
+- npm install webpack-dev-server --save-dev
 
