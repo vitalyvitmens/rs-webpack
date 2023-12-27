@@ -20,3 +20,7 @@
 - npm i @types/react @types/react-dom
 
 #### https://webpack.js.org/plugins/split-chunks-plugin/#root
+
+#### https://www.npmjs.com/package/webpack-bundle-analyzer
+- npm i webpack-bundle-analyzer --save-dev
+- npx webpack --json > stats.json
