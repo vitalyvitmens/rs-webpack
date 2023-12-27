@@ -16,3 +16,5 @@
 - npm i postcss-preset-env --save-dev
 - npm install webpack-dev-server --save-dev
 - npm install --save-dev typescript ts-loader
+- npm i react react-dom
+- npm i @types/react @types/react-dom
