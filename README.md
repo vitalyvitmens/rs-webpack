@@ -23,21 +23,60 @@
 - license: (ISC)
 - Is this OK? (yes) yes
 
--npm install webpack webpack-cli --save-dev
+- npm install webpack webpack-cli --save-dev
+- npm install --save-dev html-webpack-plugin
+- npm install copy-webpack-plugin --save-dev
+- npm i webpack-merge --save-dev
 
-- создаём файл конфигурационный файл webpack.config.js в корне проекта, в котором будем настраивать Webpack:
+- создаём 3 конфигурационных файла в корне проекта, в которых будем настраивать Webpack:
+  - webpack.config.common.js:
 
-`const path = require('path')
+    const path = require('path')
+    const HtmlWebpackPlugin = require('html-webpack-plugin')
+    const CopyPlugin = require('copy-webpack-plugin')
 
-module.exports = {
-  context: path.resolve(__dirname, 'src'),
-  entry: './index.js',
-  output: {
-    filename: '[name].[contenthash].js',
-    path: path.resolve(__dirname, 'dist'),
-    clean: true,
-  },
-}`
+    module.exports = {
+      context: path.resolve(__dirname, 'src'),
+      entry: './index.js',
+      output: {
+        filename: '[name].[contenthash].js',
+        path: path.resolve(__dirname, 'dist'),
+        clean: true,
+      },
+      plugins: [
+        new HtmlWebpackPlugin({
+          template: path.resolve(__dirname, 'public/index.html'),
+        }),
+        new CopyPlugin({
+          patterns: [
+            {
+              from: path.resolve(__dirname, 'public/favicon.png'),
+              to: path.resolve(__dirname, 'dist'),
+            },
+          ],
+        }),
+      ],
+    }
+
+    - webpack.config.dev.js:
+
+      const { merge } = require('webpack-merge')
+      const commonConfig = require('./webpack.config.common')
+
+      module.exports = merge(commonConfig, {
+        mode: 'development',
+        devtool: 'inline-source-map',
+      })
+
+    - webpack.config.prod.js:
+
+      const { merge } = require('webpack-merge')
+      const commonConfig = require('./webpack.config.common')
+
+      module.exports = merge(commonConfig, {
+        mode: 'production',
+        devtool: 'source-map',
+      })
 
 - создаём папку src в которую помещаем файлы: index.js и data.js
 - в файле data.js меняем const data = на export default
@@ -47,17 +86,18 @@ module.exports = {
   - в "scripts" меняем строку "test" на строки:
     - "start": "npx webpack --mode development",
     - "build": "npx webpack --mode production"
-- добавляем в файл index.html строку в самом низу head: <script src="./dist/bundle.js" defer></script>
-- теперь можем запустить вебпак: 
+- в корне проекта создаем папку public и перекидываем в нее файлы из корня проекта: index.html & favicon.png
+- добавляем строку в файл public/index.html перед title: <link rel="shoutcut icon" href="favicon.png" />
+- теперь можем запустить вебпак:
   - npm run start
-- после выполнения команды npm run start в папке dist обнаружим файл main.[contenthash].js
-
+- после выполнения команды npm run start в папке dist обнаружим файлы index.html (запускаем его при помощи: Open with Live Server) & main.[contenthash].js
 
 ### https://webpack.js.org/configuration/output/#outputfilename
+
 ### https://webpack.js.org/plugins/html-webpack-plugin/
+
 ### https://webpack.js.org/plugins/copy-webpack-plugin/
 
-- npm i webpack-merge --save-dev
 - npm install --save-dev css-loader
 - npm install --save-dev style-loader
 - npm install --save-dev mini-css-extract-plugin
@@ -77,5 +117,6 @@ module.exports = {
 #### https://webpack.js.org/plugins/split-chunks-plugin/#root
 
 #### https://www.npmjs.com/package/webpack-bundle-analyzer
+
 - npm i webpack-bundle-analyzer --save-dev
 - npx webpack --json > stats.json

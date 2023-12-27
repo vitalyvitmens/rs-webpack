@@ -1,2 +1,60 @@
-@font-face{font-family:Roboto;src:url(fc2b5060f7accec5cf74.ttf) format("truetype")}*{box-sizing:border-box;margin:0;padding:0}body{font-family:Roboto,sans-serif;margin:1rem auto;max-width:960px}h1{color:#00008b;margin-bottom:1rem;text-align:center}ul{list-style:none}ul li{border:1px solid #ccc;border-radius:10px;margin-bottom:1rem;padding:1rem 2rem}h3{text-align:center}button{border:2px solid #000;border-radius:5px;display:flex;margin:.5rem auto;padding:.5rem}button:hover{cursor:pointer;opacity:.75}button:active{border:2px solid green;border-radius:5px;color:green;opacity:.5}
-/*# sourceMappingURL=main.css.map*/
+/*!******************************************************************************************************************************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!../node_modules/sass-loader/dist/cjs.js!./index.scss ***!
+  \******************************************************************************************************************************************************************************/
+@font-face {
+  font-family: "Roboto";
+  src: url(fc2b5060f7accec5cf74.ttf) format("truetype");
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  max-width: 960px;
+  margin: 1rem auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: darkblue;
+}
+
+ul {
+  list-style: none;
+}
+ul li {
+  padding: 1rem 2rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  text-align: center;
+}
+
+button {
+  display: flex;
+  margin: 0.5rem auto;
+  padding: 0.5rem;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+button:hover {
+  opacity: 0.75;
+  cursor: pointer;
+}
+
+button:active {
+  opacity: 0.5;
+  border: 2px solid green;
+  color: green;
+  border-radius: 5px;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5jc3MiLCJtYXBwaW5ncyI6Ijs7O0FBQUE7RUFDRTtFQUNBO0FBQ0Y7QUFFQTtFQUNFO0VBQ0E7RUFDQTtBQUFGOztBQUdBO0VBQ0U7RUFDQTtFQUNBO0FBQUY7O0FBR0E7RUFDRTtFQUNBO0VBQ0E7QUFBRjs7QUFHQTtFQUNFO0FBQUY7QUFFRTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0FBQUo7O0FBSUE7RUFDRTtBQURGOztBQUlBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtBQURGOztBQUlBO0VBQ0U7RUFDQTtBQURGOztBQUlBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7QUFERixDIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vaW5kZXguc2NzcyJdLCJzb3VyY2VzQ29udGVudCI6WyJAZm9udC1mYWNlIHtcclxuICBmb250LWZhbWlseTogJ1JvYm90byc7XHJcbiAgc3JjOiB1cmwoJy4vZm9udHMvUm9ib3RvLVJlZ3VsYXIudHRmJykgZm9ybWF0KCd0cnVldHlwZScpO1xyXG59XHJcblxyXG4qIHtcclxuICBwYWRkaW5nOiAwO1xyXG4gIG1hcmdpbjogMDtcclxuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG59XHJcblxyXG5ib2R5IHtcclxuICBmb250LWZhbWlseTogJ1JvYm90bycsIHNhbnMtc2VyaWY7XHJcbiAgbWF4LXdpZHRoOiA5NjBweDtcclxuICBtYXJnaW46IDFyZW0gYXV0bztcclxufVxyXG5cclxuaDEge1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBtYXJnaW4tYm90dG9tOiAxcmVtO1xyXG4gIGNvbG9yOiBkYXJrYmx1ZTtcclxufVxyXG5cclxudWwge1xyXG4gIGxpc3Qtc3R5bGU6IG5vbmU7XHJcbiAgXHJcbiAgbGkge1xyXG4gICAgcGFkZGluZzogMXJlbSAycmVtO1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgI2NjYztcclxuICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAxcmVtO1xyXG4gIH1cclxufVxyXG5cclxuaDMge1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG5cclxuYnV0dG9uIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIG1hcmdpbjogMC41cmVtIGF1dG87XHJcbiAgcGFkZGluZzogMC41cmVtO1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkIGJsYWNrO1xyXG4gIGJvcmRlci1yYWRpdXM6IDVweDtcclxufVxyXG5cclxuYnV0dG9uOmhvdmVyIHtcclxuICBvcGFjaXR5OiAwLjc1O1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuYnV0dG9uOmFjdGl2ZSB7XHJcbiAgb3BhY2l0eTogMC41O1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkIGdyZWVuO1xyXG4gIGNvbG9yOiBncmVlbjtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbn1cclxuIl0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9*/
