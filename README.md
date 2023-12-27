@@ -1,6 +1,61 @@
-## https://webpack.js.org/configuration/output/#outputfilename
-## https://webpack.js.org/plugins/html-webpack-plugin/
-## https://webpack.js.org/plugins/copy-webpack-plugin/
+# Webpack
+
+- За последние годы разработка клиентской части приложений сильно преобразилась. Если раньше нам приходилось подключать множество библиотек и скриптов вручную, то теперь в этом может помочь сборщик (bundler). Одной из его важнейших задач является сборка всех скриптов в один или несколько файлов, которые называют «bundle».
+
+- Webpack — это сборщик статических модулей для современных JavaScript-приложений. Он создан в первую очередь для JavaScript, но так же может работать с другими типами файлов, такими как HTML, CSS, изображения и т. д. Когда Webpack обрабатывает приложение, он строит граф зависимостей из одной или нескольких точек входа (entry points), а затем объединяет каждый модуль, необходимый для проекта, в один или несколько «bundle».
+
+- Официальный сайт — webpack.js.org
+
+- Первый релиз — 10.03.2012г.
+
+- Webpack помогает решать проблемы вечного подключения библиотек и скриптов к HTML: в каком порядке их подключать, как решать конфликты и т. д. Также при необходимости с его помощью (а также с помощью дополнительных инструментов) можно делать некоторые преобразования с файлами (перевод Sass в CSS, новый стандарт JavaScript в старый, минификация кода и т. д.), удобно вести разработку с помощью локального сервера, source maps и многого другого.
+
+- npm init | npm init -y
+
+- package name: (rs-nature)
+- version: (1.0.0)
+- description: application that reproduces the sounds of nature
+- entry point: (index.js)
+- test command:
+- git repository:
+- keywords: webpack, js
+- author: vitalyvitmens
+- license: (ISC)
+- Is this OK? (yes) yes
+
+-npm install webpack webpack-cli --save-dev
+
+- создаём файл конфигурационный файл webpack.config.js в корне проекта, в котором будем настраивать Webpack:
+
+`const path = require('path')
+
+module.exports = {
+  context: path.resolve(__dirname, 'src'),
+  entry: './index.js',
+  output: {
+    filename: '[name].[contenthash].js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+  },
+}`
+
+- создаём папку src в которую помещаем файлы: index.js и data.js
+- в файле data.js меняем const data = на export default
+- в файл index.js добавляем импорт: import data from './data'
+- в package.json вносим изменения:
+  - меняем строку "main": "index.js" на "private": true
+  - в "scripts" меняем строку "test" на строки:
+    - "start": "npx webpack --mode development",
+    - "build": "npx webpack --mode production"
+- добавляем в файл index.html строку в самом низу head: <script src="./dist/bundle.js" defer></script>
+- теперь можем запустить вебпак: 
+  - npm run start
+- после выполнения команды npm run start в папке dist обнаружим файл main.[contenthash].js
+
+
+### https://webpack.js.org/configuration/output/#outputfilename
+### https://webpack.js.org/plugins/html-webpack-plugin/
+### https://webpack.js.org/plugins/copy-webpack-plugin/
 
 - npm i webpack-merge --save-dev
 - npm install --save-dev css-loader
