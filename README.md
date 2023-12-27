@@ -18,3 +18,5 @@
 - npm install --save-dev typescript ts-loader
 - npm i react react-dom
 - npm i @types/react @types/react-dom
+
+#### https://webpack.js.org/plugins/split-chunks-plugin/#root
