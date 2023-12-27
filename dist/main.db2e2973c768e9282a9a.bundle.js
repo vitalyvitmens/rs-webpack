@@ -1,0 +1,2 @@
+(()=>{"use strict";var t=document.querySelector("#app");[{id:1,title:"Item 1"},{id:2,title:"Item 2"},{id:3,title:"Item 3"},{id:4,title:"Item 4"}].forEach((function(e,l){var i=document.createElement("li");i.textContent=e.title,l%2==0?(i.style.background="lightgray",i.style.color="red"):i.style.background="lightblue",t.append(i)}))})();
+//# sourceMappingURL=main.db2e2973c768e9282a9a.bundle.js.map
