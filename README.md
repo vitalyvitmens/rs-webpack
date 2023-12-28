@@ -146,12 +146,107 @@
   },
 - после выполнения команды в терминале: npm run build обнаружим в папке dist минимизированные файлы: index.html, main.css, main.[hash].js 
 
-#### https://fonts.google.com/specimen/Roboto
+#### Подключение шрифтов в webpack
+- переходим по ссылке https://fonts.google.com/specimen/Roboto
+- скачиваем шрифты Roboto и складываем их в папку src/fonts/
+- подключаем шрифты в файле src/index.css добавляя следующий импорт:
+  @font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/Roboto-Regular.ttf') format('truetype');
+  }
+- подключаем шрифты в файле src/index.css добавляя следующий код например в body:
+  body {
+    font-family: 'Roboto', sans-serif;
+    max-width: 960px;
+    margin: 1rem auto;
+  }
+- добавляем в файл webpack.config.common.js в поле module в массив rules следующий код:
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+      },
+    ],
+  },
 
+#### Подключаем в webpack препроцессор SASS (SCSS):
 - npm install sass-loader sass webpack --save-dev
+- добавляем в файл webpack.config.common.js в поле module в массив rules следующий код:
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+      },
+    ],
+  },
+- добавляем файл со стилями src/index.scss
+- подключаем его в файле src/index.js в виде импорта: import './index.scss'
+
+#### Что бы улучшить сборку за счет самых современных фишек css добавляем postcss-loader:
 - npm install --save-dev postcss-loader postcss
 - npm i postcss-preset-env --save-dev
+- добавляем в файл webpack.config.common.js в поле module в массив rules следующий код:
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [require('postcss-preset-env')],
+              },
+            },
+          },
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+      },
+    ],
+  },
+
+#### Для комфортной разработки с автоматическим обновлением браузера после внесения изменений в код добавляем DevServer:
 - npm install webpack-dev-server --save-dev
+- добавляем в файл webpack.config.dev.js поле devServer:
+  module.exports = merge(commonConfig, {
+    mode: 'development',
+    devtool: 'inline-source-map',
+    devServer: {
+      port: 3000,
+      hot: true,
+      open: true,
+    },
+  })
+- в package.json вносим изменения:
+  - в "scripts" меняем строку "start" на:
+    "start": "npx webpack serve --config webpack.config.dev.js",
+- теперь при выполнении в терминале команды: npm run start наш проект открывается на http://localhost:3000/ в режиме разработки и Live Server больше не нужен
+
+
 - npm install --save-dev typescript ts-loader
 - npm i react react-dom
 - npm i @types/react @types/react-dom
