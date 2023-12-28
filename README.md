@@ -98,11 +98,53 @@
 
 ### https://webpack.js.org/plugins/copy-webpack-plugin/
 
+#### Подключаем в webpack css:
+- создаем файл со стилями: src/index.css
+- подключаем его в файл: src/index.js добавляя в нем строку импорта: import './index.css'
 - npm install --save-dev css-loader
 - npm install --save-dev style-loader
+- добавляем в файл webpack.config.common.js следующий код:
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
+
+#### Что бы при сборке webpack создавал отдельный css файл (что бы он не выносил все прямо в стили через js):
 - npm install --save-dev mini-css-extract-plugin
+- подключаем его в файл: webpack.config.common.js добавляя в нем строку импорта: const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+- добавляем в файл webpack.config.common.js в массив палгинов следующий код:
+  new MiniCssExtractPlugin(),
+- далее используем его статический лоадер, для этого в файл webpack.config.common.js вносим изменения в следующий код:
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+    ],
+  },
+- после выполнения команды в терминале: npm run build:dev обнаружим в папке dist файл main.css
+
+#### Для минимизации при запуске продакшн сборки npm run build файла dist/main.css в файл dist/main.css.map: 
 - npm install css-minimizer-webpack-plugin --save-dev
+- подключаем его в файл: webpack.config.prod.js добавляя в нем строку импорта: const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+- добавляем в файл webpack.config.prod.js поле optimization (следующий код):
+  optimization: {
+    minimizer: [new CssMinimizerPlugin()],
+  },
+- после выполнения команды в терминале: npm run build обнаружим в папке dist минимизированный файл main.css, но зато файл main.[hash].js стал не минимизированный из-за того что мы переписали по умолчанию минимайзеры которые создаются в вебпаке при продакшн сборке, что бы исправить ставим другой плагин который минимизирует js код - TerserWebpackPlugin:
 - npm install terser-webpack-plugin --save-dev
+- подключаем его в файл: webpack.config.prod.js добавляя в нем строку импорта: const TerserPlugin = require("terser-webpack-plugin")
+- добавляем в файл webpack.config.prod.js в массив minimizer (следующий код):
+  optimization: {
+    minimize: true,
+    minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
+  },
+- после выполнения команды в терминале: npm run build обнаружим в папке dist минимизированные файлы: index.html, main.css, main.[hash].js 
 
 #### https://fonts.google.com/specimen/Roboto
 
